@@ -33,7 +33,7 @@ body {
   }
   &__info {
     display: grid;
-    grid-template-rows: 1fr 1fr 0.5fr;
+    grid-template-rows: 100px 100px 50px;
     grid-row-gap: 5px;
     padding: 20px 30px;
   }
@@ -44,7 +44,6 @@ body {
   &__para {
     color: hsl(214, 17%, 51%);
     font-size: 13px;
-    margin-top: 0;
   }
   &__footer {
     font-size: 13px;
@@ -59,8 +58,13 @@ body {
     background-size: 100% 100%;
     border-radius: 50%;
   }
-  &__authorinfo {
+  &__name {
     margin-top: 10px;
+    font-weight: bold;
+    color: hsl(217, 19%, 35%);
+  }
+  &__date {
+    color: hsl(212, 23%, 69%);
   }
   &__button {
     width: 100%;
