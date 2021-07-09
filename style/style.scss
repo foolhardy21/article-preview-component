@@ -1,15 +1,14 @@
- @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
-// font-family: 'Manrope', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+@import './variables.scss';
 
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: hsl(210, 46%, 95%);
+  background: $lightGrayishBlue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +43,7 @@ body {
       grid-column-end: 6;
       font-weight: 700;
       font-size: 1.25rem;
-      color: hsl(217, 19%, 35%);
+      color: $veryDarkGrayishBlue;
       align-self: center;
       margin: 0 20px;
     }
@@ -53,7 +52,7 @@ body {
       grid-row-end: 7;
       grid-column-start: 1;
       grid-column-end: 6;
-      color: hsl(214, 17%, 51%);
+      color: $desaturatedDarkBlue;
       font-size: 13px;
       margin: 0 20px;
     }
@@ -81,11 +80,11 @@ body {
       grid-column-start: 2;
       grid-column-end: 5;
       align-self: center;
-      color: hsl(217, 19%, 35%);
+      color: $veryDarkGrayishBlue;
       font-size: 13px;
       margin-left: 10px;
       span {
-        color: hsl(214, 17%, 51%);
+        color: $desaturatedDarkBlue;
       }
     }
     .six {
@@ -101,7 +100,7 @@ body {
         width: 42px;
         height: 42px;
         border-radius: 50%;
-        background-image: url('../images/icon-share.svg'), linear-gradient(hsl(210, 46%, 95%),hsl(210, 46%, 95%));
+        background-image: url('../images/icon-share.svg'), linear-gradient($lightGrayishBlue,$lightGrayishBlue);
         background-repeat: no-repeat;
         background-size: 40px;
         background-position: center;
@@ -114,9 +113,9 @@ body {
 @media(min-width: 700px) {
 
 .card {
+  display: grid;
   width: 60vw;
   height: 40vh;
-  display: grid;
   grid-template-columns: repeat(10,1fr);
   grid-template-rows: repeat(5,1fr);
   background: white;
@@ -138,7 +137,7 @@ body {
   .two {
     font-weight: 700;
     font-size: 1.25rem;
-    color: hsl(217, 19%, 35%);
+    color: $veryDarkGrayishBlue;
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column-start: 5;
@@ -146,7 +145,7 @@ body {
     align-self: flex-end;
   }
   .three {
-    color: hsl(214, 17%, 51%);
+    color: $desaturatedDarkBlue;
     font-size: 13px;
     grid-row-start: 3;
     grid-row-end: 5;
@@ -173,7 +172,7 @@ body {
   }
   .five {
     font-size: 13px;
-    color: hsl(217, 19%, 35%);
+    color: $veryDarkGrayishBlue;
     grid-row-start: 5;
     grid-row-end: 6;
     grid-column-start: 6;
@@ -181,7 +180,7 @@ body {
     align-self: center;
     padding-left: 10px;
     span {
-      color: hsl(214, 17%, 51%);
+      color: $desaturatedDarkBlue;
     }
   }
   .six {
@@ -196,7 +195,7 @@ body {
       width: 34px;
       height: 35px;
       border-radius: 50%;
-      background-image: url('../images/icon-share.svg'), linear-gradient(hsl(210, 46%, 95%),hsl(210, 46%, 95%));
+      background-image: url('../images/icon-share.svg'), linear-gradient($lightGrayishBlue,$lightGrayishBlue);
       background-size: 35px;
       background-repeat: no-repeat;
       background-position: center;
