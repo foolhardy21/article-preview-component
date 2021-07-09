@@ -14,6 +14,59 @@ body {
   justify-content: center;
   align-items: center;
 }
+@media(max-width: 699px) {
+  .card {
+    display: grid;
+    width: 80vw;
+    min-height: 90vh;
+    grid-template-rows: repeat(8,1fr);
+    grid-template-columns: repeat(5,1fr);
+
+    .one {
+      grid-row-start: 1;
+      grid-row-end: 4;
+      grid-column-start: 1;
+      grid-column-end: 6;
+      background: lightgreen;
+    }
+    .two {
+      grid-row-start: 4;
+      grid-row-end: 6;
+      grid-column-start: 1;
+      grid-column-end: 6;
+      background: lightblue;
+    }
+    .three {
+      grid-row-start: 6;
+      grid-row-end: 8;
+      grid-column-start: 1;
+      grid-column-end: 6;
+      background: pink;
+    }
+    .four {
+      grid-row-start: 8;
+      grid-row-end: 9;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      background: brown;
+    }
+    .five {
+      grid-row-start: 8;
+      grid-row-end: 9;
+      grid-column-start: 2;
+      grid-column-end: 5;
+    }
+    .six {
+      grid-row-start: 8;
+      grid-row-end: 9;
+      grid-column-start: 5;
+      grid-column-end: 6;
+      background: blue;
+    }
+  }
+}
+
+@media(min-width: 700px) {
 
 .card {
   width: 60vw;
@@ -105,4 +158,6 @@ body {
       background-position: center;
     }
   }
+}
+
 }
