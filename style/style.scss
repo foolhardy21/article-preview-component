@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
 @import './variables.scss';
 
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+@mixin buildCell($row-start,$row-end,$col-start,$col-end) {
+  grid-row-start: $row-start;
+  grid-row-end: $row-end;
+  grid-column-start: $col-start;
+  grid-column-end: $col-end;
+}
+@mixin buildGrid($rows,$cols) {
+  grid-template-rows: repeat($rows,1fr);
+  grid-template-columns: repeat($cols,1fr);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,9 +26,7 @@ body {
   padding: 0;
   min-height: 100vh;
   background: $lightGrayishBlue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   font-family: 'Manrope', sans-serif;
 
 }
@@ -20,16 +35,12 @@ body {
     display: grid;
     width: 80vw;
     min-height: 90vh;
-    grid-template-rows: repeat(7,1fr);
-    grid-template-columns: repeat(5,1fr);
+    @include buildGrid(7, 5);
     background: white;
     border-radius: 10px;
 
     .one {
-      grid-row-start: 1;
-      grid-row-end: 4;
-      grid-column-start: 1;
-      grid-column-end: 6;
+      @include buildCell(1, 4, 1, 6);
       background-image: url('../images/drawers.jpg') ;
       background-size: cover;
       background-repeat: no-repeat;
@@ -37,10 +48,7 @@ body {
       border-top-right-radius: 10px;
     }
     .two {
-      grid-row-start: 4;
-      grid-row-end: 6;
-      grid-column-start: 1;
-      grid-column-end: 6;
+      @include buildCell(4, 6, 1, 6);
       font-weight: 700;
       font-size: 1.25rem;
       color: $veryDarkGrayishBlue;
@@ -48,22 +56,14 @@ body {
       margin: 0 20px;
     }
     .three {
-      grid-row-start: 6;
-      grid-row-end: 7;
-      grid-column-start: 1;
-      grid-column-end: 6;
+      @include buildCell(6, 7, 1, 6);
       color: $desaturatedDarkBlue;
       font-size: 13px;
       margin: 0 20px;
     }
     .four {
-      grid-row-start: 7;
-      grid-row-end: 8;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include buildCell(7, 8, 1, 2);
+      @include flexCenter;
       margin-left: 25px;
       span {
         width: 55px;
@@ -75,10 +75,7 @@ body {
       }
     }
     .five {
-      grid-row-start: 7;
-      grid-row-end: 8;
-      grid-column-start: 2;
-      grid-column-end: 5;
+      @include buildCell(7, 8, 2, 5);
       align-self: center;
       color: $veryDarkGrayishBlue;
       font-size: 13px;
@@ -88,13 +85,8 @@ body {
       }
     }
     .six {
-      grid-row-start: 7;
-      grid-row-end: 8;
-      grid-column-start: 5;
-      grid-column-end: 6;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include buildCell(7, 8, 5, 6);
+      @include flexCenter;
       margin-right: 25px;
       span {
         width: 42px;
@@ -116,8 +108,7 @@ body {
   display: grid;
   width: 60vw;
   height: 40vh;
-  grid-template-columns: repeat(10,1fr);
-  grid-template-rows: repeat(5,1fr);
+  @include buildGrid(10, 5);
   background: white;
   padding-right: 10px;
   border-radius: 10px;
@@ -126,10 +117,7 @@ body {
     background-image: url('../images/drawers.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    grid-row-start: 1;
-    grid-row-end: 6;
-    grid-column-start: 1;
-    grid-column-end: 5;
+    @include buildCell(1, 6, 1, 5);
     margin-right: 20px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -138,29 +126,18 @@ body {
     font-weight: 700;
     font-size: 1.25rem;
     color: $veryDarkGrayishBlue;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    grid-column-start: 5;
-    grid-column-end: 11;
+    @include buildCell(1, 3, 5, 11);
     align-self: flex-end;
   }
   .three {
     color: $desaturatedDarkBlue;
     font-size: 13px;
-    grid-row-start: 3;
-    grid-row-end: 5;
-    grid-column-start: 5;
-    grid-column-end: 11;
+    @include buildCell(3, 5, 5, 11);
     align-self: center;
   }
   .four {
-    grid-row-start: 5;
-    grid-row-end: 6;
-    grid-column-start: 5;
-    grid-column-end: 5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include buildCell(5, 6, 5, 5);
+    @include flexCenter;
     span {
       width: 35px;
       height: 36px;
@@ -173,10 +150,7 @@ body {
   .five {
     font-size: 13px;
     color: $veryDarkGrayishBlue;
-    grid-row-start: 5;
-    grid-row-end: 6;
-    grid-column-start: 6;
-    grid-column-end: 10;
+    @include buildCell(5, 6, 6, 10);
     align-self: center;
     padding-left: 10px;
     span {
@@ -184,13 +158,8 @@ body {
     }
   }
   .six {
-    grid-row-start: 5;
-    grid-row-end: 6;
-    grid-column-start: 10;
-    grid-column-end: 11;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include buildCell(5, 6, 10, 11);
+    @include flexCenter;
     span {
       width: 34px;
       height: 35px;
