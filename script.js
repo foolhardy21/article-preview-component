@@ -21,7 +21,28 @@ button.addEventListener('click',() => {
             sharePanel.style.gridColumnStart = 1
             sharePanel.style.gridColumnEnd = 5
             sharePanel.style.background = 'hsl(217, 19%, 35%)'
+            sharePanel.style.color = 'hsl(212, 23%, 69%)'
             sharePanel.style.borderBottomLeftRadius = '10px'
+            sharePanel.style.display = 'flex'
+            sharePanel.style.justifyContent = 'center'
+            sharePanel.style.alignItems = 'center'
+            sharePanel.innerText = 'share'
+            sharePanel.style.textTransform = 'uppercase'
+            const facebookImg = document.createElement('img')
+            facebookImg.src = './images/icon-facebook.svg'
+            facebookImg.style.marginLeft='5%'
+            sharePanel.appendChild(facebookImg)
+            const twitterImg = document.createElement('img')
+            twitterImg.src = './images/icon-twitter.svg'
+            twitterImg.style.marginLeft='5%'
+            sharePanel.appendChild(twitterImg)
+            const pinterestImg = document.createElement('img')
+            pinterestImg.src = './images/icon-pinterest.svg'
+            pinterestImg.style.marginLeft='5%'
+            sharePanel.appendChild(pinterestImg)
+            
+            
+            
             grid.appendChild(sharePanel)
 
             shareButton.style.background='hsl(217, 19%, 35%)'
