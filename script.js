@@ -1,6 +1,7 @@
 const grid = document.querySelector('.card')
 const button = document.querySelector('.card__button')
 
+
 button.addEventListener('click',() => {
     
     if(document.body.clientWidth < 700) {
@@ -9,52 +10,27 @@ button.addEventListener('click',() => {
         const authorName = document.querySelector('.card__authorinfo')
         const shareButton = document.querySelector('.card__button')
         
-        if( !authorImg.style.display || authorImg.style.display == 'flex') {
+        if( ifAuthorVisible(authorImg) ) {
 
-            authorImg.style.display='none'
-            authorName.style.display='none'       
+            toggleDisplay(authorImg,'none')
+            toggleDisplay(authorName,'none')       
             
-            let sharePanel = document.createElement('div')
+            let sharePanel = createElement('div')
             sharePanel.setAttribute('id','card__sharepanel')
-            sharePanel.style.gridRowStart = 7
-            sharePanel.style.gridRowEnd = 8
-            sharePanel.style.gridColumnStart = 1
-            sharePanel.style.gridColumnEnd = 5
-            sharePanel.style.background = 'hsl(217, 19%, 35%)'
-            sharePanel.style.color = 'hsl(212, 23%, 69%)'
-            sharePanel.style.borderBottomLeftRadius = '10px'
-            sharePanel.style.display = 'flex'
-            sharePanel.style.justifyContent = 'center'
-            sharePanel.style.alignItems = 'center'
-            sharePanel.innerText = 'share'
-            sharePanel.style.textTransform = 'uppercase'
-            const facebookImg = document.createElement('img')
-            facebookImg.src = './images/icon-facebook.svg'
-            facebookImg.style.marginLeft='5%'
-            sharePanel.appendChild(facebookImg)
-            const twitterImg = document.createElement('img')
-            twitterImg.src = './images/icon-twitter.svg'
-            twitterImg.style.marginLeft='5%'
-            sharePanel.appendChild(twitterImg)
-            const pinterestImg = document.createElement('img')
-            pinterestImg.src = './images/icon-pinterest.svg'
-            pinterestImg.style.marginLeft='5%'
-            sharePanel.appendChild(pinterestImg)
             
-            
+            styleMobileSharePanel(sharePanel)
             
             grid.appendChild(sharePanel)
 
-            shareButton.style.background='hsl(217, 19%, 35%)'
-            shareButton.style.borderBottomRightRadius = '10px'
-        
+            styleMobileShareButton(shareButton)
+                    
         } else {
             const sharePanel = document.querySelector('#card__sharepanel')
             grid.removeChild(sharePanel)
             
             shareButton.removeAttribute('style')
-            authorImg.style.display = 'flex'
-            authorName.style.display = 'block'
+            toggleDisplay(authorImg, 'flex')
+            toggleDisplay(authorName, 'block')
         }
     } else {
         const tooltipText = document.querySelector('#tooltiptext')
@@ -62,35 +38,11 @@ button.addEventListener('click',() => {
 
         if( !tooltipText ) {
             
-            let toolTipText = document.createElement('span')
+            let toolTipText = createElement('span')
             toolTipText.setAttribute('id','tooltiptext')
-            toolTipText.style.position = 'absolute'
-            toolTipText.style.visibility = 'visible'
-            toolTipText.style.zIndex = 1
-            toolTipText.style.display = 'flex'
-            toolTipText.style.justifyContent = 'center'
-            toolTipText.style.alignItems = 'center'
-            toolTipText.style.textTransform = 'uppercase'
-            toolTipText.style.color = 'hsl(212, 23%, 69%)'
-            toolTipText.style.background = 'hsl(217, 19%, 35%)'
-            toolTipText.style.marginBottom = '100px'
-            toolTipText.style.width = '200px'
-            toolTipText.style.height = '50px'
-            toolTipText.style.borderRadius = '10px'
-            toolTipText.innerText = 'share'
-            const facebookImg = document.createElement('img')
-            facebookImg.src = './images/icon-facebook.svg'
-            facebookImg.style.marginLeft='5%'
-            toolTipText.appendChild(facebookImg)
-            const twitterImg = document.createElement('img')
-            twitterImg.src = './images/icon-twitter.svg'
-            twitterImg.style.marginLeft='5%'
-            toolTipText.appendChild(twitterImg)
-            const pinterestImg = document.createElement('img')
-            pinterestImg.src = './images/icon-pinterest.svg'
-            pinterestImg.style.marginLeft='5%'
-            toolTipText.appendChild(pinterestImg)
-
+            
+            styleDesktopSharePanel(toolTipText)
+            
             toolTip.appendChild(toolTipText)
 
         } else if( tooltipText.style.visibility == 'hidden' ) {
@@ -103,3 +55,82 @@ button.addEventListener('click',() => {
         }
     }
 })
+
+function toggleDisplay( element, value) {
+    element.style.display = value
+}
+
+function styleMobileSharePanel(element) {
+    
+    buildMobileSharePanelGrid(element, 7, 8, 1, 5)
+    
+    element.style.borderBottomLeftRadius = '10px'
+    
+    styleSharePanel( element )
+    
+    appendImages(element)
+    
+}
+function buildMobileSharePanelGrid(element, rowStart, rowEnd, colStart, colEnd) {
+    element.style.gridRowStart = rowStart
+    element.style.gridRowEnd = rowEnd
+    element.style.gridColumnStart = colStart
+    element.style.gridColumnEnd = colEnd
+}
+function styleSharePanel(element, background = 'hsl(217, 19%, 35%)', color = 'hsl(212, 23%, 69%)',
+display = 'flex', justify = 'center', align = 'center', text = 'share', transform = 'uppercase') {
+    
+    element.style.background = background
+    element.style.color = color            
+    element.style.display = display 
+    element.style.justifyContent = justify 
+    element.style.alignItems = align
+    element.innerText = text
+    element.style.textTransform = transform 
+    
+}
+function appendImages( element ) {
+    const facebookImg = createElement('img')
+    getImage(facebookImg, './images/icon-facebook.svg', '5%', element)
+    
+    const twitterImg = createElement('img')
+    getImage(twitterImg, './images/icon-twitter.svg', '5%', element)
+    
+    const pinterestImg = createElement('img')
+    getImage(pinterestImg, './images/icon-pinterest.svg', '5%', element)
+    
+    
+}
+function createElement(type) {
+    return document.createElement(type)
+}
+function getImage(imgContainer, path, leftMargin, element) {
+    imgContainer.src = path
+    imgContainer.style.marginLeft=leftMargin
+    element.appendChild(imgContainer)
+}
+
+function styleMobileShareButton(button) {
+    button.style.background='hsl(217, 19%, 35%)'
+    button.style.borderBottomRightRadius = '10px'
+    
+}
+
+function ifAuthorVisible(author) {
+    return ( !author.style.display 
+                || author.style.display == 'flex' ) ? true : false
+}
+
+function styleDesktopSharePanel(element) {
+
+            styleSharePanel(element)
+            element.style.position = 'absolute'
+            element.style.visibility = 'visible'
+            element.style.marginBottom = '100px'
+            element.style.width = '200px'
+            element.style.height = '50px'
+            element.style.borderRadius = '10px'
+            
+            appendImages( element )
+
+}
