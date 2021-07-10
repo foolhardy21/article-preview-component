@@ -34,7 +34,7 @@ body {
     background: white;
     border-radius: 10px;
   }
-  .card .one {
+  .card .card__image {
     -ms-grid-row: 1;
         grid-row-start: 1;
     grid-row-end: 4;
@@ -47,7 +47,7 @@ body {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
-  .card .two {
+  .card .card__heading {
     -ms-grid-row: 4;
         grid-row-start: 4;
     grid-row-end: 6;
@@ -62,7 +62,7 @@ body {
         align-self: center;
     margin: 0 20px;
   }
-  .card .three {
+  .card .card__info {
     -ms-grid-row: 6;
         grid-row-start: 6;
     grid-row-end: 7;
@@ -73,7 +73,7 @@ body {
     font-size: 13px;
     margin: 0 20px;
   }
-  .card .four {
+  .card .card__authorimg {
     -ms-grid-row: 7;
         grid-row-start: 7;
     grid-row-end: 8;
@@ -91,7 +91,7 @@ body {
             align-items: center;
     margin-left: 25px;
   }
-  .card .four span {
+  .card .card__authorimg span {
     width: 55px;
     height: 55px;
     border-radius: 50%;
@@ -99,7 +99,7 @@ body {
     background-size: 55px;
     background-repeat: no-repeat;
   }
-  .card .five {
+  .card .card__authorinfo {
     -ms-grid-row: 7;
         grid-row-start: 7;
     grid-row-end: 8;
@@ -113,10 +113,10 @@ body {
     font-size: 13px;
     margin-left: 10px;
   }
-  .card .five span {
+  .card .card__authorinfo span {
     color: #6d7f97;
   }
-  .card .six {
+  .card .card__button {
     -ms-grid-row: 7;
         grid-row-start: 7;
     grid-row-end: 8;
@@ -134,7 +134,7 @@ body {
             align-items: center;
     margin-right: 25px;
   }
-  .card .six span {
+  .card .card__button span {
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -152,15 +152,15 @@ body {
     display: grid;
     width: 60vw;
     height: 40vh;
-    -ms-grid-rows: (1fr)[10];
-        grid-template-rows: repeat(10, 1fr);
-    -ms-grid-columns: (1fr)[5];
-        grid-template-columns: repeat(5, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    -ms-grid-columns: (1fr)[10];
+        grid-template-columns: repeat(10, 1fr);
     background: white;
     padding-right: 10px;
     border-radius: 10px;
   }
-  .card .one {
+  .card .card__image {
     background-image: url("../images/drawers.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -174,7 +174,7 @@ body {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
-  .card .two {
+  .card .card__heading {
     font-weight: 700;
     font-size: 1.25rem;
     color: #48556a;
@@ -187,7 +187,7 @@ body {
     -ms-flex-item-align: end;
         align-self: flex-end;
   }
-  .card .three {
+  .card .card__info {
     color: #6d7f97;
     font-size: 13px;
     -ms-grid-row: 3;
@@ -200,7 +200,7 @@ body {
         -ms-grid-row-align: center;
         align-self: center;
   }
-  .card .four {
+  .card .card__authorimg {
     -ms-grid-row: 5;
         grid-row-start: 5;
     grid-row-end: 6;
@@ -217,7 +217,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
-  .card .four span {
+  .card .card__authorimg span {
     width: 35px;
     height: 36px;
     border-radius: 50%;
@@ -225,7 +225,7 @@ body {
     background-size: 35px;
     background-repeat: no-repeat;
   }
-  .card .five {
+  .card .card__authorinfo {
     font-size: 13px;
     color: #48556a;
     -ms-grid-row: 5;
@@ -239,10 +239,10 @@ body {
         align-self: center;
     padding-left: 10px;
   }
-  .card .five span {
+  .card .card__authorinfo span {
     color: #6d7f97;
   }
-  .card .six {
+  .card .card__button {
     -ms-grid-row: 5;
         grid-row-start: 5;
     grid-row-end: 6;
@@ -259,7 +259,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
-  .card .six span {
+  .card .card__button span {
     width: 34px;
     height: 35px;
     border-radius: 50%;

@@ -1,22 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
 @import './variables.scss';
-
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-@mixin buildCell($row-start,$row-end,$col-start,$col-end) {
-  grid-row-start: $row-start;
-  grid-row-end: $row-end;
-  grid-column-start: $col-start;
-  grid-column-end: $col-end;
-}
-@mixin buildGrid($rows,$cols) {
-  grid-template-rows: repeat($rows,1fr);
-  grid-template-columns: repeat($cols,1fr);
-}
+@import './mixin.scss';
 
 * {
   box-sizing: border-box;
@@ -39,7 +23,7 @@ body {
     background: white;
     border-radius: 10px;
 
-    .one {
+    .card__image {
       @include buildCell(1, 4, 1, 6);
       background-image: url('../images/drawers.jpg') ;
       background-size: cover;
@@ -47,7 +31,7 @@ body {
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
     }
-    .two {
+    .card__heading {
       @include buildCell(4, 6, 1, 6);
       font-weight: 700;
       font-size: 1.25rem;
@@ -55,13 +39,13 @@ body {
       align-self: center;
       margin: 0 20px;
     }
-    .three {
+    .card__info {
       @include buildCell(6, 7, 1, 6);
       color: $desaturatedDarkBlue;
       font-size: 13px;
       margin: 0 20px;
     }
-    .four {
+    .card__authorimg {
       @include buildCell(7, 8, 1, 2);
       @include flexCenter;
       margin-left: 25px;
@@ -74,7 +58,7 @@ body {
         background-repeat: no-repeat;
       }
     }
-    .five {
+    .card__authorinfo {
       @include buildCell(7, 8, 2, 5);
       align-self: center;
       color: $veryDarkGrayishBlue;
@@ -84,7 +68,7 @@ body {
         color: $desaturatedDarkBlue;
       }
     }
-    .six {
+    .card__button {
       @include buildCell(7, 8, 5, 6);
       @include flexCenter;
       margin-right: 25px;
@@ -108,12 +92,12 @@ body {
   display: grid;
   width: 60vw;
   height: 40vh;
-  @include buildGrid(10, 5);
+  @include buildGrid(5, 10);
   background: white;
   padding-right: 10px;
   border-radius: 10px;
 
-  .one {
+  .card__image {
     background-image: url('../images/drawers.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -122,20 +106,20 @@ body {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
-  .two {
+  .card__heading {
     font-weight: 700;
     font-size: 1.25rem;
     color: $veryDarkGrayishBlue;
     @include buildCell(1, 3, 5, 11);
     align-self: flex-end;
   }
-  .three {
+  .card__info {
     color: $desaturatedDarkBlue;
     font-size: 13px;
     @include buildCell(3, 5, 5, 11);
     align-self: center;
   }
-  .four {
+  .card__authorimg {
     @include buildCell(5, 6, 5, 5);
     @include flexCenter;
     span {
@@ -147,7 +131,7 @@ body {
       background-repeat: no-repeat;
     }
   }
-  .five {
+  .card__authorinfo {
     font-size: 13px;
     color: $veryDarkGrayishBlue;
     @include buildCell(5, 6, 6, 10);
@@ -157,7 +141,7 @@ body {
       color: $desaturatedDarkBlue;
     }
   }
-  .six {
+  .card__button {
     @include buildCell(5, 6, 10, 11);
     @include flexCenter;
     span {

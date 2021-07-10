@@ -1,0 +1,17 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  @mixin buildCell($row-start,$row-end,$col-start,$col-end) {
+    grid-row-start: $row-start;
+    grid-row-end: $row-end;
+    grid-column-start: $col-start;
+    grid-column-end: $col-end;
+  }
+  @mixin buildGrid($rows,$cols) {
+    grid-template-rows: repeat($rows,1fr);
+    grid-template-columns: repeat($cols,1fr);
+  }
+  
